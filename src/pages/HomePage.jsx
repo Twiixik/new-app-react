@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import PostCard from '../components/PostCard';
 
 export default function HomePage() {
     const [posts, setPosts] = useState([]); // Correctly destructuring useState with square brackets
@@ -19,9 +20,11 @@ export default function HomePage() {
 
     return (
         <section className="page">
-            <h1>Home Page</h1>
-            <p>Home is where the heart is 💛</p>
-            <p>Oh My, sounds like a bad movie!</p>
+            <div className='grid'>
+                {posts.map(post => (
+	                <PostCard post={post} key={post.id} />
+	            ))}
+            </div>
         </section>
     );
 }
